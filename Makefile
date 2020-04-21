@@ -6,6 +6,10 @@ init:
 create-admin:
 	docker-compose run --rm web python manage.py createsuperuser
 
+.PHONY: make-migrations
+make-migrations:
+	docker-compose run --rm web python manage.py makemigrations
+
 .PHONY: migrate
 migrate:
 	docker-compose run --rm web python manage.py migrate
